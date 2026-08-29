@@ -114,6 +114,14 @@ h1 {
 #continue-button { position: relative; padding: 15px 38px; background: rgba(150, 70, 220, 0.12); color: white; border: 1px solid rgba(200, 140, 255, 0.6); border-radius: 50px; font-size: 15px; letter-spacing: 1px; cursor: pointer; overflow: hidden; opacity: 0; animation: buttonAppear 1s ease 2s forwards; transition: 0.4s ease; }
 #continue-button::before { content: ""; position: absolute; top: 0; left: -100%; width: 70%; height: 100%; background: linear-gradient( 90deg, transparent, rgba(255, 255, 255, 0.25), transparent ); transform: skewX(-20deg); animation: buttonGlow 3s infinite; }
 #continue-button:hover { transform: translateY(-4px) scale(1.03); background: rgba(170, 90, 240, 0.25); box-shadow: 0 0 20px rgba(180, 100, 255, 0.35), 0 0 50px rgba(150, 70, 220, 0.15); }
+#continue-button {
+    position: relative;
+    z-index: 9999;
+    display: inline-block;
+    pointer-events: auto;
+    touch-action: manipulation;
+    cursor: pointer;
+}   
     </style>
 </head>
 <body>
