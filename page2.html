@@ -5,12 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* PAGE 2 */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
 body {
     min-height: 100vh;
 
     background: #160d24;
-
     color: white;
 
     font-family: Arial, sans-serif;
@@ -19,58 +29,87 @@ body {
     justify-content: center;
     align-items: center;
 
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    position: relative;
 }
+
+/* Background glow */
+
 body::before {
     content: "";
+
     position: fixed;
+
     width: 600px;
     height: 600px;
+
     background: radial-gradient(
         circle,
         rgba(140, 70, 220, 0.25),
         transparent 70%
     );
+
     top: -200px;
     left: -150px;
+
     animation: moveGlow 8s ease-in-out infinite alternate;
+
     pointer-events: none;
     z-index: 0;
 }
 
 body::after {
     content: "";
+
     position: fixed;
+
     width: 500px;
     height: 500px;
+
     background: radial-gradient(
         circle,
         rgba(190, 80, 255, 0.18),
         transparent 70%
     );
+
     bottom: -200px;
     right: -150px;
+
     animation: moveGlow2 10s ease-in-out infinite alternate;
+
     pointer-events: none;
     z-index: 0;
 }
 
+/* Main page */
+
 .page {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     position: relative;
     z-index: 1;
+
+    padding: 30px 15px;
 }
 
+/* Box */
 
 .form-box {
-    width: 90%;
+    width: 100%;
     max-width: 700px;
-    min-height: 650px;
 
-    padding: 70px 60px;
+    padding: 50px 40px;
 
     text-align: center;
 
-    background: rgba(25, 12, 40, 0.88);
+    background: rgba(25, 12, 40, 0.95);
 
     border: 1px solid rgba(200, 140, 255, 0.25);
     border-radius: 20px;
@@ -80,6 +119,9 @@ body::after {
         inset 0 0 30px rgba(150, 70, 220, 0.05);
 
     animation: boxAppear 1.2s ease forwards;
+
+    position: relative;
+    z-index: 2;
 }
 
 .form-box h1 {
@@ -93,11 +135,11 @@ body::after {
     margin-bottom: 30px;
 }
 
-
 /* Labels */
 
 .form-box label {
     display: block;
+
     text-align: left;
 
     margin-top: 18px;
@@ -107,11 +149,11 @@ body::after {
     font-size: 14px;
 }
 
-
 /* Inputs */
 
 .form-box input {
     width: 100%;
+
     padding: 13px 15px;
 
     background: rgba(255, 255, 255, 0.05);
@@ -125,6 +167,11 @@ body::after {
     outline: none;
 
     transition: 0.3s;
+
+    position: relative;
+    z-index: 3;
+
+    pointer-events: auto;
 }
 
 .form-box input:focus {
@@ -132,7 +179,6 @@ body::after {
 
     box-shadow: 0 0 15px rgba(170, 90, 240, 0.2);
 }
-
 
 /* Verify button */
 
@@ -142,6 +188,7 @@ body::after {
     padding: 13px 35px;
 
     background: rgba(150, 70, 220, 0.15);
+
     color: white;
 
     border: 1px solid rgba(200, 140, 255, 0.6);
@@ -153,6 +200,13 @@ body::after {
     letter-spacing: 1px;
 
     transition: 0.4s;
+
+    position: relative;
+    z-index: 3;
+
+    pointer-events: auto;
+
+    touch-action: manipulation;
 }
 
 .form-box form > button:hover {
@@ -162,7 +216,6 @@ body::after {
 
     box-shadow: 0 0 25px rgba(180, 100, 255, 0.3);
 }
-
 
 /* Result */
 
@@ -176,9 +229,13 @@ body::after {
     border-radius: 15px;
 
     background: rgba(255, 255, 255, 0.04);
+
     border: 1px solid rgba(200, 140, 255, 0.25);
 
     animation: resultAppear 0.8s ease forwards;
+
+    position: relative;
+    z-index: 3;
 }
 
 #result-title {
@@ -192,7 +249,6 @@ body::after {
     margin-bottom: 20px;
 }
 
-
 /* Continue */
 
 #continue-button {
@@ -203,6 +259,7 @@ body::after {
     padding: 13px 32px;
 
     background: transparent;
+
     color: white;
 
     border: 1px solid rgba(200, 140, 255, 0.7);
@@ -214,10 +271,18 @@ body::after {
     letter-spacing: 1px;
 
     transition: 0.4s;
+
+    position: relative;
+    z-index: 4;
+
+    pointer-events: auto;
+
+    touch-action: manipulation;
 }
 
 #continue-button:hover {
     background: white;
+
     color: #180b25;
 
     transform: scale(1.05);
@@ -225,11 +290,9 @@ body::after {
     box-shadow: 0 0 25px rgba(200, 140, 255, 0.4);
 }
 
-
 /* Animations */
 
 @keyframes resultAppear {
-
     from {
         opacity: 0;
         transform: translateY(15px);
@@ -240,9 +303,46 @@ body::after {
         transform: translateY(0);
     }
 }
-#result-message {
-    display: none;
+
+@keyframes boxAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .page {
+        padding: 20px 12px;
+        align-items: flex-start;
+    }
+
+    .form-box {
+        margin-top: 20px;
+        padding: 35px 22px;
+    }
+
+    .form-box h1 {
+        font-size: 23px;
+    }
+
+    .form-box input {
+        font-size: 16px;
+    }
+
+    .form-box form > button {
+        font-size: 15px;
+    }
+}
+
     </style>
 </head>
 <body>
