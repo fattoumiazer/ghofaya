@@ -104,85 +104,45 @@ h1 {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
-
 .continue-btn {
-    position: relative;
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: fixed !important;
+
+    bottom: 25px !important;
+    left: 50% !important;
+
+    transform: translateX(-50%) !important;
+
+    display: block !important;
 
     padding: 14px 42px;
-    border: 2px solid rgba(255, 255, 255, 0.7);
-    border-radius: 50px;
 
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.15);
     color: white;
-
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: 1px;
-
-    cursor: pointer;
-
-    backdrop-filter: blur(8px);
-
-    animation: continueFloat 2.5s ease-in-out infinite;
-    transition: all 0.3s ease;
-}
-
-.continue-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: translateX(-50%) scale(1.08);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-@keyframes continueFloat {
-    0%, 100% {
-        transform: translateX(-50%) translateY(0);
-    }
-
-    50% {
-        transform: translateX(-50%) translateY(-7px);
-    }
-}
-
-```css id="h3p8zn"
-.continue-btn {
-    position: absolute;
-
-    bottom: 25px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    padding: 12px 38px;
 
     border: 2px solid rgba(255, 255, 255, 0.7);
     border-radius: 50px;
-
-    background: rgba(255, 255, 255, 0.12);
-    color: white;
 
     text-decoration: none;
 
-    font-size: 17px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
     font-weight: 500;
 
     cursor: pointer;
+
+    z-index: 99999 !important;
+
+    pointer-events: auto !important;
 
     backdrop-filter: blur(8px);
 
     transition: 0.3s ease;
-
-    z-index: 100;
 }
 
 .continue-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-
-    transform: translateX(-50%) scale(1.08);
+    background: rgba(255, 255, 255, 0.28);
+    transform: translateX(-50%) scale(1.08) !important;
 }
-```
 
     </style>
 </head>
@@ -204,7 +164,7 @@ h1 {
     <button class="arrow" onclick="changePhoto(1)">❯</button>
 
 </div>
-<a href="page7.html" class="continue-btn"> Continue → </a>
+
 <div id="zoomBox" onclick="closeZoom()">
     <span>×</span>
     <img id="zoomedPhoto">
@@ -241,9 +201,7 @@ function closeZoom() {
 }
 </script>
 
-<button class="continue-btn" onclick="window.location.href='page7.html'">
-    Continue
-</button>
+<a href="page7.html" class="continue-btn"> Continue → </a>
 
 
 </body>
