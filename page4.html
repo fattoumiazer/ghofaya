@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    background: #241238 !important;
+    color: white;
+}
+
+/* Dark violet animated glow */
+
+body::before {
+    content: "";
+    position: fixed;
+
+    width: 700px;
+    height: 700px;
+
+    top: -250px;
+    left: -200px;
+
+    background: radial-gradient(
+        circle,
+        rgba(150, 70, 230, 0.30),
+        transparent 70%
+    );
+
+    animation: violetMove1 8s ease-in-out infinite alternate;
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+
+    width: 600px;
+    height: 600px;
+
+    right: -200px;
+    bottom: -250px;
+
+    background: radial-gradient(
+        circle,
+        rgba(190, 90, 255, 0.22),
+        transparent 70%
+    );
+
+    animation: violetMove2 10s ease-in-out infinite alternate;
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes violetMove1 {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(180px, 120px);
+    }
+}
+
+@keyframes violetMove2 {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-160px, -120px);
+    }
+}
+        .page4-content {
+    position: relative;
+    z-index: 5;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+
+/* PHOTO */
+
+.photo-frame {
+    width: 620px;
+    max-width: 85vw;
+
+    height: 380px;
+
+    padding: 10px;
+
+    background: rgba(18, 8, 28, 0.9);
+
+    border: 1px solid rgba(200, 140, 255, 0.4);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 35px rgba(150, 70, 220, 0.25);
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    animation: page4Photo 1.4s ease 0.4s forwards;
+}
+
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    display: block;
+}
+
+
+/* MESSAGE */
+
+.page4-message {
+    margin-top: 25px;
+
+    color: white;
+
+    font-size: 19px;
+
+    letter-spacing: 1px;
+
+    opacity: 0;
+
+    animation: page4Message 1.2s ease 1.8s forwards;
+}
+
+
+/* BUTTON */
+
+.back-button {
+    margin-top: 20px;
+
+    padding: 13px 35px;
+
+    border-radius: 50px;
+
+    background: rgba(120, 55, 170, 0.18);
+
+    border: 1px solid rgba(210, 160, 255, 0.55);
+
+    color: white;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    animation: page4Button 1.2s ease 2.8s forwards;
+
+    transition: all 0.4s ease;
+}
+
+
+.back-button:hover {
+    background: rgba(160, 80, 220, 0.35);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 25px rgba(190, 100, 255, 0.45);
+}
+
+
+/* ANIMATIONS */
+
+@keyframes page4Photo {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes page4Message {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes page4Button {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    </style>
+</head>
+<body>
+    <main class="page">
+
+    <section class="page4-content">
+
+        
+
+        <div class="page4-message">
+            <p>
+                Every time I look into your eyes I see their beauty and I think of every simple and beautiful moment I’ve shared with you..
+            </p>
+            <p>
+                But this isn’t what we’re here for… go to Circle 2 ❤️
+            </p>
+        </div>
+
+        <button class="back-button" id="backToPage3">
+            ← BACK
+        </button>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

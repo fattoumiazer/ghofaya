@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+.letter-page {
+    width: 100%;
+    min-height: 100vh;
+    background: #16001f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.letter {
+    width: min(650px, 80%);
+    min-height: 500px;
+    padding: 55px 65px;
+    background: #fffaf5;
+    color: #28182e;
+    border-radius: 8px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+    text-align: center;
+
+    animation: letterAppear 1.2s ease;
+}
+
+.letter-top {
+    font-size: 32px;
+    color: #7b3f72;
+}
+
+.letter h1 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    font-weight: 500;
+    margin: 10px 0 15px;
+}
+
+.line {
+    width: 80px;
+    height: 1px;
+    background: #7b3f72;
+    margin: 0 auto 35px;
+}
+
+
+.hidden-message {
+    display: none; 
+}
+
+.hidden-message.show {
+    display: block;
+    animation: messageAppear 1.2s ease; 
+}
+
+.hidden-message p {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 22px;
+    line-height: 1.9;
+    text-align: center;
+}
+
+.hidden-message::-webkit-scrollbar {
+    width: 5px;
+}
+
+.hidden-message::-webkit-scrollbar-thumb {
+    background: #7b3f72;
+    border-radius: 10px;
+}
+
+
+.letter-bottom {
+    margin-top: 35px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: #7b3f72;
+}
+
+.click-here {
+    margin-top: 35px;
+    padding: 13px 35px;
+
+    border: 1px solid #7b3f72;
+    border-radius: 30px;
+
+    background: transparent;
+    color: #7b3f72;
+
+    font-size: 16px;
+    cursor: pointer;
+
+    transition: 0.4s ease;
+}
+
+.click-here:hover {
+    background: #7b3f72;
+    color: white;
+    transform: scale(1.08);
+}
+
+.click-here.hide {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.8);
+}
+
+@keyframes letterAppear {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    } 
+    to {
+         opacity: 1;
+          transform: translateY(0); } 
+    }
+    
+.page-buttons {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-buttons button {
+    padding: 12px 28px;
+    border-radius: 30px;
+
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.12);
+
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+
+    backdrop-filter: blur(8px);
+
+    transition: 0.3s ease;
+    animation: buttonFloat 2.5s ease-in-out infinite;
+}
+
+.page-buttons button:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.08);
+}
+
+.page-buttons button:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+@keyframes buttonFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@media (max-width: 600px) {
+    .page-buttons {
+        gap: 10px;
+    }
+
+    .page-buttons button {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+}
+
+    </style>
+</head>
+<body>
+   
+<div class="letter-page">
+
+    <div class="letter">
+
+        <div class="letter-top">♡</div>
+
+        <h1>For You</h1>
+
+        <div class="line"></div>
+
+        
+<div id="hiddenMessage" style="display: none;">
+
+    <p style="font-size: 22px !important; line-height: 1.9 !important;">
+        Ghofayttii happy birthday ya ru7i ❤️
+        <br><br>
+        W nchllh kol 3am w enti haya b5irr w nchllh nhar hetha yet3adelek nhar mezyen w tkun farhana fih kima layamet lo5rin.
+        Netmana nkun bl cadeau hethaa 5alitk tafrah chwy shih mouch fi 9imtk ama nchllh yfarhek.
+        <br><br>
+        Gamerti nhebek brcha ❤️ w kol nhar nzidouh fedenya hethi yzid hobi lik akther w akther.
+        Rby y5alik lya w ya3tina lwa9t ettayeb eli nrak fih nejha w m7a9e9a ahlemk lkoll m3a nes li thebhommm w yhebukkk ❤️
+        <br><br>
+        Love u w enjoy ur day 3inaya ❤️
+    </p>
+
+</div>
+
+<button
+    id="clickHere"
+    class="click-here"
+    onclick="
+        document.getElementById('hiddenMessage').style.display = 'block';
+        this.style.display = 'none';
+    ">
+    Click here
+</button>
+
+        
+    </div>
+
+</div>
+
+<div class="page-buttons">
+
+    <button class="restart-btn" onclick="window.location.href='index.html'">
+        Want to relive it?
+    </button>
+
+    <button class="continue-btn" onclick="window.location.href='page8.html'">
+        Continue
+    </button>
+
+</div>
+
+
+
+</body>
+</html>

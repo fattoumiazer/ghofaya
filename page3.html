@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* =========================
+   PAGE 3
+========================= */
+
+body {
+    min-height: 100vh;
+    margin: 0;
+
+    background: #180d27;
+
+    color: white;
+    font-family: Arial, sans-serif;
+
+    overflow: hidden;
+}
+
+
+/* Animated violet background */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 700px;
+    height: 700px;
+
+    top: -250px;
+    left: -200px;
+
+    background: radial-gradient(
+        circle,
+        rgba(145, 70, 220, 0.28),
+        transparent 70%
+    );
+
+    animation: backgroundMove 8s ease-in-out infinite alternate;
+
+    z-index: 0;
+}
+
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 600px;
+    height: 600px;
+
+    right: -200px;
+    bottom: -250px;
+
+    background: radial-gradient(
+        circle,
+        rgba(190, 80, 255, 0.20),
+        transparent 70%
+    );
+
+    animation: backgroundMove2 10s ease-in-out infinite alternate;
+
+    z-index: 0;
+}
+
+
+/* PAGE CONTENT */
+
+.page {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.circle-section {
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+/* TEXT */
+
+.instruction {
+    position: relative;
+
+    z-index: 10;
+
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 24px;
+    font-weight: 500;
+
+    letter-spacing: 2px;
+
+    margin: 0 0 45px 0;
+
+    opacity: 0;
+
+    animation: textAppear 1.5s ease 0.5s forwards;
+}
+
+
+/* CIRCLES */
+
+.circles {
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+.circle {
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+
+    background: #100918;
+
+    color: white;
+
+    border: 1px solid #76508d;
+
+    font-size: 30px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    transform: scale(0.5);
+
+    transition: 0.4s ease;
+
+    box-shadow:
+        0 0 20px rgba(140, 70, 200, 0.15);
+}
+
+
+/* Circle appearance */
+
+#circle1 {
+    animation: circleAppear 1s ease 1.8s forwards;
+}
+
+#circle2 {
+    animation: circleAppear 1s ease 2.4s forwards;
+}
+
+#circle3 {
+    animation: circleAppear 1s ease 3s forwards;
+}
+
+
+/* Hover */
+
+.circle:hover {
+    background: #5b287d;
+
+    border-color: #d09aff;
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 30px rgba(190, 100, 255, 0.55);
+}
+
+
+/* Correct */
+
+.circle.correct {
+    background: #753b9b;
+
+    border-color: #e0baff;
+
+    box-shadow:
+        0 0 35px rgba(200, 120, 255, 0.7);
+
+    transform: scale(1.08);
+}
+
+
+/* Message */
+
+#circle-message {
+    position: relative;
+
+    z-index: 10;
+
+    min-height: 25px;
+
+    margin-top: 30px;
+
+    color: white;
+
+    font-size: 16px;
+
+    opacity: 0;
+
+    transition: opacity 0.5s ease;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes textAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes circleAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    70% {
+        transform: scale(1.08);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+@keyframes backgroundMove {
+
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(250px, 180px);
+    }
+}
+
+
+@keyframes backgroundMove2 {
+
+  }
+  from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-200px, -150px);
+    }
+    
+    </style>
+</head>
+<body>
+    <main class="page">
+
+    <section class="circle-section">
+
+        <h1 class="instruction">
+            Click the circles in order.
+        </h1>
+
+        <div class="circles">
+
+            <button class="circle" id="circle1" onclick="goToPage4()">
+            1
+</button>
+
+            <button class="circle" id="circle2" onclick="goToPage5()">
+            2
+</button>
+
+            <button class="circle" id="circle3" onclick="goToPage6()">
+            3
+</button>
+
+        </div>
+
+        <p id="circle-message"></p>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

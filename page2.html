@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* PAGE 2 */
+body {
+    min-height: 100vh;
+
+    background: #160d24;
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 600px;
+    height: 600px;
+
+    background: radial-gradient(
+        circle,
+        rgba(140, 70, 220, 0.25),
+        transparent 70%
+    );
+
+    top: -200px;
+    left: -150px;
+
+    animation: moveGlow 8s ease-in-out infinite alternate;
+}
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    background: radial-gradient(
+        circle,
+        rgba(190, 80, 255, 0.18),
+        transparent 70%
+    );
+
+    bottom: -200px;
+    right: -150px;
+
+    animation: moveGlow2 10s ease-in-out infinite alternate;
+}
+.form-box {
+    width: 90%;
+    max-width: 700px;
+    min-height: 650px;
+
+    padding: 70px 60px;
+
+    text-align: center;
+
+    background: rgba(25, 12, 40, 0.88);
+
+    border: 1px solid rgba(200, 140, 255, 0.25);
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 40px rgba(150, 70, 220, 0.15),
+        inset 0 0 30px rgba(150, 70, 220, 0.05);
+
+    animation: boxAppear 1.2s ease forwards;
+}
+
+.form-box h1 {
+    font-size: 28px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.form-intro {
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+
+/* Labels */
+
+.form-box label {
+    display: block;
+    text-align: left;
+
+    margin-top: 18px;
+    margin-bottom: 7px;
+
+    color: #ddd;
+    font-size: 14px;
+}
+
+
+/* Inputs */
+
+.form-box input {
+    width: 100%;
+    padding: 13px 15px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(200, 140, 255, 0.3);
+    border-radius: 10px;
+
+    color: white;
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+.form-box input:focus {
+    border-color: rgba(210, 150, 255, 0.8);
+
+    box-shadow: 0 0 15px rgba(170, 90, 240, 0.2);
+}
+
+
+/* Verify button */
+
+.form-box form > button {
+    margin-top: 28px;
+
+    padding: 13px 35px;
+
+    background: rgba(150, 70, 220, 0.15);
+    color: white;
+
+    border: 1px solid rgba(200, 140, 255, 0.6);
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+    letter-spacing: 1px;
+
+    transition: 0.4s;
+}
+
+.form-box form > button:hover {
+    background: rgba(170, 90, 240, 0.3);
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 0 25px rgba(180, 100, 255, 0.3);
+}
+
+
+/* Result */
+
+#result-message {
+    display: none;
+
+    margin-top: 30px;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(200, 140, 255, 0.25);
+
+    animation: resultAppear 0.8s ease forwards;
+}
+
+#result-title {
+    font-size: 30px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+#result-text {
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+
+/* Continue */
+
+#continue-button {
+    display: none;
+
+    margin: 0 auto;
+
+    padding: 13px 32px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid rgba(200, 140, 255, 0.7);
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+    letter-spacing: 1px;
+
+    transition: 0.4s;
+}
+
+#continue-button:hover {
+    background: white;
+    color: #180b25;
+
+    transform: scale(1.05);
+
+    box-shadow: 0 0 25px rgba(200, 140, 255, 0.4);
+}
+
+
+/* Animations */
+
+@keyframes resultAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#result-message {
+    display: none;
+}
+    </style>
+</head>
+<body>
+   <main class="page">
+
+    <section class="form-box">
+
+        <h1>Just One More Thing ❤️</h1>
+
+        <p class="form-intro">
+            Fill in the details to continue.
+        </p>
+
+        <form id="giftForm">
+
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" placeholder="Enter your first name" required>
+
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" placeholder="Enter your last name" required>
+
+            <label for="birthDate">Creator's Birth Date</label>
+            <input type="text" id="birthDate" placeholder="DD/MM/YYYY" maxlength="10" required>
+
+            <button type="submit">
+                VERIFY ❤️
+            </button>
+
+        </form>
+
+        <div id="result-message">
+
+            <h2 id="result-title"></h2>
+
+            <p id="result-text"></p>
+
+            <button id="continue-button" type="button">
+                CONTINUE →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
